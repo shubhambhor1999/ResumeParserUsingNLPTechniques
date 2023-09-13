@@ -4,7 +4,7 @@ A common job portal for employers as well as employees is provided to apply and 
 The resumes received would be parsed and ranked according to company requirements.
 Additionally our other goal is to extract the data from Social Media like Linkedin for applying jobs which will make the recruitment process easier getting quality applications from various regions by avoiding unfair and discriminatory practice.
 
-Check Our Research Paper at Below Link:
+Check Our Research Paper at Below Link:                                                                                                                                                                                                                                          
 Resume Parser using Natural Language Processing Techniques (IJRES)
 www.ijres.org Volume 9 Issue 6 ǁ 2021 ǁ PP. 01-06
 
