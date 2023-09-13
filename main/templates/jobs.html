@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title%}All Companies{% endblock %}
+{% block content %}
+<form action="/jobs">
+    <div class="input-group mb-4">
+        {% csrf_token %}
+        <input type="text" class="form-control" name="search" placeholder="ex: php developer">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary" type="button">Search</button>
+        </div>
+    </div>
+</form>
+<!-- List Start -->
+<div class="row mb-4">
+    <!-- List Box Start -->
+    {% if jobs %}
+        {% for job in jobs %}
+        <div class="col-sm-6 mb-4">
+            <div class="card">
+                <h5 class="card-header">{{job.title}}</h5>
+                <div class="card-body">
+                    <h6 class="card-title"><a href="/company/detail/{{job.company.id}}">{{job.company.title}}</a></h6>
+                    <p class="card-text">{{job.company.address}}</p>
+                    <p class="card-text">{{job.company.contact_no}}</p>
+                    <p><a href="/job/detail/{{job.id}}" class="btn btn-primary btn-sm">Full Detail</a></p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">posted on: {{job.post_date}}</small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+    <!-- List Box End -->
+</div>
+<!-- List End -->
+<!-- Pagination Start -->
+<nav aria-label="...">
+    {% if jobs.has_other_pages %}
+    <ul class="pagination">
+        {% if jobs.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ jobs.previous_page_number }}">&laquo;</a></li>
+        {% else %}
+        <li class="disabled page-item"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;</a></li>
+        {% endif %}
+        {% for i in jobs.paginator.page_range %}
+        {% if jobs.number == i %}
+            <li class="active page-item"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">{{ i }} <span class="sr-only">(current)</span></a></li>
+        {% else %}
+            <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if jobs.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ jobs.next_page_number }}">&raquo;</a></li>
+        {% else %}
+        <li class="disabled page-item"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">&raquo;</a></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+</nav>
+<!-- Pagination End -->
+<style>
+    .card:hover{
+        box-shadow: 0px 0px 20px 0px #ccc;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}

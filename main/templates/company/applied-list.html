@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title%}Hirex{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        {% include 'company/left-sidebar.html' %}
+    </div>
+    <div class="col-md-9">
+        <div class="card">
+            <h5 class="card-header">Applied Jobs</h5>
+            <div class="card-body">
+                <table class="table table-bordered" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Apply Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if employees %}
+                            {% for emp in employees %}
+                                <tr>
+                                    <td>{{emp.id}}</td>
+                                    <td>
+                                        <a href="/p/profile/{{emp.employee.id}}" title="click to view detail">{{emp.employee.full_name}}</a>
+                                    </td>
+                                    <td>{{emp.employee.email}}</td>
+                                    <td>{{emp.applied_time}}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+                <a title="Click to view list" href="/ranker" class="btn btn-sm btn-info">Rank Resumes</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- dataTable CSS -->
+<link rel="stylesheet" href="{% static 'lib/dataTable/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'lib/dataTable/dataTables.min.css' %}">
+<!-- dataTableJs -->
+<script src="{% static 'lib/dataTable/datatables.min.js' %}"></script>
+<script src="{% static 'lib/dataTable/js/dataTables.bootstrap4.min.js' %}"></script>
+<!-- initialize datatable -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#dataTable").dataTable({
+            order:[[0,'desc']]
+        });
+    });
+</script>
+{% endblock %}

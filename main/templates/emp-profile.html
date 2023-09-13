@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title%}Hirex{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5>{{emp.full_name}} <small>({{emp.job_title}})</small></h5>
+                <h6 class="text-muted">{{emp.contact_no}}</h6>
+                <h6 class="text-muted">{{emp.email}}</h6>
+                <h6 class="text-muted">{{emp.address}}</h6>
+                <a class="text-muted" href='{{emp.resume.url}}' download >{{emp.resume}}</a>
+            </div>
+        </div>
+        <hr/>
+</div>
+{% endblock %}

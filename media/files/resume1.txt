@@ -1,0 +1,26 @@
+{
+    "email": "vishaknair28@gmail.com",
+    "phone": "9678954321",
+    "name": "Mr. VISHAK",
+    "total_exp": 0,
+    "university": [],
+    "designition": [
+        "html developer",
+        "business development",
+        "it intern"
+    ],
+    "degree": [],
+    "skills": [
+        ":",
+        "HTML Developer",
+        " CSS Developer",
+        " Bootstrap",
+        " Python",
+        " C",
+        "DBMS",
+        " Cloud Computing",
+        " C++",
+        " Oracle"
+    ],
+    "Companies worked at": []
+}

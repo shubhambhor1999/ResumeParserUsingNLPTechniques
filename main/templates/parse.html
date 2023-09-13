@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+<div class="container card">
+    <h1>Candidate Details:</h1>
+    <div class="card">
+        <table class="table">
+            <tr>
+                <th>Name:</th>
+                <td>{{name}}</td>
+                <th>Details:<td>{{details}}</td></th>
+                
+            
+            </tr>
+            <tr>
+                <th>Address:</th>
+                <td>{{address}}</td>
+            
+                <th>Mobile:<td>{{phone}}</td></th>
+                
+            </tr>
+            <tr>
+                <th>Email:</th>
+                {% for c in emails %}
+                <td>{{c}}</td>
+                {% endfor %}
+                <th>Skills:</th>
+                <td>{% for c in skills %}
+                {{c}},
+                {% endfor %}</td>
+            </tr>
+            <tr>
+                <th>Education:</th>
+                <td>{% for c in education %}
+                {{c}},
+                {% endfor %}</td>
+            </tr>
+            </table>
+            </div>
+</div>
+<br>
+<br>
+<div class="container card">
+    <h1>Candidate Resume:</h1>
+    <object  height="700" type="text/plain" data="../../media/files/resume.txt" style="overflow: hidden;" >
+    </object>
+    <h1>Extracted Entities:</h1>
+    <object  height="700" data="../../media/files/resume1.txt" style="overflow: hidden;" >
+    </object>
+
+  
+</div>
+
+{% endblock %}

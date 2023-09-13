@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Hirex{% endblock %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-sm-8 mb-4">
+        <div class="card">
+            <h5 class="card-header">{{company.title}}</h5>
+            <div class="card-body">
+                <p class="card-text">{{company.detail|safe|linebreaks}}</p>
+                {% if company.website %}
+                <p class="card-text">Website: {{company.website}}</p>
+                {% endif %}
+            </div>
+        </div>
+        <hr/>
+        <div class="card">
+            <h5 class="card-header">Jobs</h5>
+            <div class="list-group list-group-flush">
+                {% if jobs %}
+                    {% for job in jobs %}
+                        <li class="list-group-item"><a href="/job/detail/{{job.id}}">{{job.title}}</a>
+                            {% if not request.session.companyLogin%}
+                            <a class="float-right btn btn-outline-info btn-sm" href="/job/detail/{{job.id}}">Apply Now</a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- Company Detail -->
+    <div class="col-sm-4">
+        <div class="card">
+            <h5 class="card-header">Company Detail</h5>
+            <div class="card-body">
+                <h6>Address</h6>
+                <p>{{company.address}}</p>
+                <hr/>
+                <h6>Contact No.</h6>
+                <p>{{company.contact_no}}</p>
+                <hr/>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{job.title}}{% endblock %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-sm-8 mb-4">
+        {% if messages %}
+            {% for message in messages %}
+                <p class="text-success">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <div class="card">
+            <h5 class="card-header">{{job.title}}</h5>
+            <div class="card-body">
+                <p class="card-text">{{job.detail|safe}}</p>
+                <hr/>
+                {% if request.session.empLogin %}
+                    {% if not applied %}
+                    <p>
+                        <form method="post" action="/job/apply">
+                            {% csrf_token %}
+                            <input type="hidden" name="job_id" value="{{job.id}}" />
+                            <input type="hidden" name="company_id" value="{{job.company.id}}" />
+                            <input type="hidden" name="emp_id" value="{{request.session.empId}}" />
+                            <button type="submit" class="btn btn-primary btn-sm">Apply Now</button>
+                        </form>
+                    </p>
+                    {% else %}
+                    <span class="btn btn-light btn-sm active">Applied</span>
+                    {% endif %}
+                {% else %}
+                <a href="/login?next=/job/detail/{{job.id}}" class="btn btn-primary btn-sm">Login to Apply</a>
+                {% endif %}
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">posted on: {{job.post_date}}</small>
+            </div>
+        </div>
+    </div>
+    <!-- Company Detail -->
+    <div class="col-sm-4">
+        <div class="card">
+            <h5 class="card-header">Company Detail</h5>
+            <div class="card-body">
+                <h6>Address</h6>
+                <p>{{job.company.address}}</p>
+                <hr/>
+                <h6>Contact No.</h6>
+                <p>{{job.company.contact_no}}</p>
+                <hr/>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

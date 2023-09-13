@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+<div class="container card">
+    <h1>Rank Resumes:</h1>
+    <div class="card">
+        <form action = "/rank">
+            <h6>Input Keywords:</h6>
+            <textarea col='40' rows = '5' name = "fulltext"></textarea>
+            <br/>
+            <input type = 'submit'  class="btn btn-danger" value= 'Rank Resumes' />
+            </form>
+        <br>
+        </div>
+</div>
+
+{% endblock %}

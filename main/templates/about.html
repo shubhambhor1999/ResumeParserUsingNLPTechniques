@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'lib/main/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'lib/main/css/style.css'%}">
+    <script src="{% static 'lib/main/js/jquery.js'%}"></script>
+    <script src="{% static 'lib/main/js/bootstrap.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'lib/main/js/all.min.js'%}"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Hirex</title>
+</head>
+
+<body>
+ 
+    <section class="about" id="about" style="background-color:#f9fafa
+    ;">
+        <div class="about mt-4">
+            <h1
+                style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align:center; font-size: 60px;">
+                About Us</h1>
+            <br>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-12">
+
+                        <img src="{% static 'lib/main/images/aboutpic1.jpg'%}" width="500px" ; height="500px" ;>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <p style="text-align: justify; font-family: sans-serif;"> Hirex.com is the most innovative and second largest online job portal in India. Founded in 2010, over the past decade, Hirex.com has become a prominent name in the recruitment industry. The popularity of the portal is evident from the fact that it has crossed the 3.4 crore candidate landmark and has more than 3 lakh latest job vacancies from leading companies on the site.
+
+Hirex.com connects jobseekers and recruiters by accurately matching candidate profiles to the relevant job openings through an advanced 2-way matching technology. While most job portals only focus on getting candidates the next job, Hirex focuses on the entire career growth of candidates. To this end, Hirex has launched E-Learning- India’s largest career skills site for working professionals with over 500+ courses & certifications.
+
+As the industry shifts towards mobile, Hirex.com is leading the transition and is the fastest growing job portal on mobile devices, witnessing a 100% YOY growth in mobile traffic and also offers on-the-go jobs through the Shine Job Search App.
+
+Hirex works closely to bridge the gap between talent & opportunities and offers end-to-end recruitment solutions. Hirex Job Fair brings candidates and top employers under one roof. While Hirex HR Conclave brings top HR leaders to share insights on latest trends, innovations & best practices in the HR industry. Hirex also has a large reach through its print product, Hirex Jobs – the Tuesday Job supplement of Hindustan Times– making it the only job portal with an integrated print and online offering.
+                        </p>
+
+
+                    </div>
+
+                </div>
+            </div>
+    </section>
+    <section class="team" id="team">
+        <h1 style="font-family:Serif; text-align:center; font-size: 60px;">Our Team</h1>
+        <br>
+        <div class="container-fluid">
+
+            <div class="row ">
+
+                <div class="card col-lg-3  col-md-6 border-white mx-auto" style="width: 18rem;">
+                    <img src="{% static 'lib/main/images/p1.jpg'%}" style="border-radius:10%" height="400px" ; class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Mr.Shubham Bhor</h5>
+                        <p class="card-text" justify>
+                            <center>Department Head</center>
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <div class="card col-lg-3  col-md-6 border-white mx-auto" style="width: 18rem;">
+                    <img src="{% static 'lib/main/images/p12.jpg'%}" style="border-radius:10%" height="400px" ; class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Mr.Vivek Gupta</h5>
+                        <p class="card-text" justify>
+                            <center>CEO</center>
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="card col-lg-3  col-md-6 border-white mx-auto" style="width: 18rem;">
+                    <img src="{% static 'lib/main/images/p13.jpg'%}" style="border-radius:10%" height="400px" ; class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Mr.Vishak Nair</h5>
+                        <p class="card-text" justify>
+                            <center>Co-Founder</center>
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <div class="card col-lg-3  col-md-6 border-white mx-auto" style="width: 18rem;">
+                    <img src="{% static 'lib/main/images/p11.jpg'%}" style="border-radius:10%" height="400px" ; class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Mr.Harish Shinde</h5>
+                        <p class="card-text" justify>
+                            <center>Project Manager</center>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+    <footer class="footer" style="padding-bottom: 1px;">
+        <br>
+        <pre
+          style="text-align: center; font-size: 15px; color:white;">Copyright<i class="far fa-copyright"></i>2021 All Rights Reserved</pre>
+        
+    
+      </footer>
+      {% endblock %}
+</body>
+
+</html>

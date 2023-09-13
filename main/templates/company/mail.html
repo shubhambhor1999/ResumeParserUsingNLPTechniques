@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+<div class="container card">
+
+    <h1>Candidate Reply:</h1>
+	{% if messages %}
+	{% for message in messages %}
+		<p class="text-success">{{ message }}</p>
+	{% endfor %}
+	{% endif %}
+    <div class="card">
+	<div style="margin:80px">
+		<form action="/employee/notifications">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label>
+				<input type="email" placeholder="sample@gmail.com" required class="form-control  input-sm"
+					name="email" aria-describedby="emailHelp">
+
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Subject</label><br>
+				<input type="text" placeholder="Subject" class="form-control" name="subject"
+					aria-describedby="emailHelp">
+
+			</div>
+			<div class="form-group">
+				<label for="examplecomment1">Messaage</label>
+				<textarea placeholder="please add your message here" class="form-control " rows="5"
+					name="message"></textarea>
+			</div><br>
+			<div>
+			<button type="submit" value="submit" class="btn btn-primary">Submit</button>
+		</form>
+    </div>
+	</div>
+	</div>
+	{% endblock %}

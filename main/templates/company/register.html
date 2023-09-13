@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title%}Company Register{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h6 class="mb-3">If you are already registered then please <a href="/company/login">login here</a>.</h6>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="text-success">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <div class="card">
+            <h4 class="card-header">Register</h4>
+            <div class="card-body">
+                <form method="post" action="/company/register">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group row">
+                        <lable class="col-sm-2">{{field.label}}{% if field.field.required%}<span class="text-danger">*</span>{%endif%}</lable>
+                        <div class="col-sm-10">
+                            {{field|add_class:"form-control"}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <input type="submit" value="Register" class="btn btn-dark" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

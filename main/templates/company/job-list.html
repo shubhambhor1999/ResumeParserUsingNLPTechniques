@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title%}Hirex{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        {% include 'company/left-sidebar.html' %}
+    </div>
+    <div class="col-md-9">
+        <div class="card">
+            <h5 class="card-header">All Jobs</h5>
+            <div class="card-body">
+                <table class="table table-bordered" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Applied</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if jobs %}
+                            {% for job in jobs %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>
+                                        {{job.title}}
+                                        <br/><small class="text-muted">Posted On: {{job.post_date}}</small>
+                                    </td>
+                                    <td><a title="Click to view list" href="applied/job/{{job.id}}" class="btn btn-sm btn-info">{{job.applyjob_set.count}}</a></td>
+                                    <td>{{job.publish}}</td>
+                                    <td>
+                                        <a href="/company/jobs/update/{{job.id}}" class="btn btn-sm btn-info"><i class="fa fa-pencil"></i></a>
+                                        <a href="/company/jobs/remove/{{job.id}}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-sm btn-danger"><i class="fa fa-remove"></i></a>
+                                        <a href="/company/jobs/detail/{{job.id}}" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- dataTable CSS -->
+<link rel="stylesheet" href="{% static 'lib/dataTable/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'lib/dataTable/dataTables.min.css' %}">
+<!-- dataTableJs -->
+<script src="{% static 'lib/dataTable/datatables.min.js' %}"></script>
+<script src="{% static 'lib/dataTable/js/dataTables.bootstrap4.min.js' %}"></script>
+<!-- initialize datatable -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#dataTable").dataTable();
+    });
+</script>
+{% endblock %}

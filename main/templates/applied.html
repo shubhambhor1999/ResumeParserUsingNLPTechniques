@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title%}Applied Jobs{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        {% include 'left-sidebar.html' %}
+    </div>
+    <div class="col-md-9">
+        <div class="card">
+            <h5 class="card-header">Applied Jobs</h5>
+            <div class="card-body">
+                <table class="table table-bordered" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if jobs %}
+                            {% for applied in jobs %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>
+                                        <a href="/job/detail/{{applied.job.id}}">{{applied.job.title}}</a>
+                                        <br/><small class="text-muted"><a class="text-dark" href="/company/detail/{{applied.job.company.id}}">{{applied.job.company.title}}</a></small>
+                                        <br/><small class="text-muted">Applied On: {{applied.applied_time}}</small>
+                                    </td>
+                                    <td>{{applied.job.publish}}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- dataTable CSS -->
+<link rel="stylesheet" href="{% static 'lib/dataTable/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'lib/dataTable/dataTables.min.css' %}">
+<!-- dataTableJs -->
+<script src="{% static 'lib/dataTable/datatables.min.js' %}"></script>
+<script src="{% static 'lib/dataTable/js/dataTables.bootstrap4.min.js' %}"></script>
+<!-- initialize datatable -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#dataTable").dataTable({
+            order:[[0,'desc']]
+        });
+    });
+</script>
+{% endblock %}

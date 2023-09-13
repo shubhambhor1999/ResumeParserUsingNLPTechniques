@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title%}Hirex{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        {% include 'company/left-sidebar.html' %}
+    </div>
+    <div class="col-md-9">
+        <div class="card">
+            <h5 class="card-header">Job Detail 
+                <a href="/company/jobs/remove/{{job.id}}" onclick="return confirm('Are you sure to delete this?')" class="float-right badge badge-danger"><i class="fa fa-remove"></i></a>
+                <a href="/company/jobs/update/{{job.id}}" class="float-right badge badge-info mr-1"><i class="fa fa-pencil"></i></a>
+            </h5>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Title</th>
+                        <td>{{job.title}}</td>
+                    </tr>
+                    <tr>
+                        <th>Detail</th>
+                        <td>{{job.detail|safe}}</td>
+                    </tr>
+                    <tr>
+                        <th>Publish</th>
+                        <td>{{job.publish}}</td>
+                    </tr>
+                    <tr>
+                        <th>Posted On</th>
+                        <td>{{job.post_date}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
